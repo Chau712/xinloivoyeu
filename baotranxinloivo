@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xin lỗi người yêu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Xin lỗi vợ!</h1>
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG42bXE1bjdodXdpcXF0aXQzM3NlaXZpMTR6cjUxZjV5b2Y4aTc5ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/SVkhYVCi8fKPKvypi6/giphy.webp" alt="Capoo dễ thương" class="sticker">
+        <p class="cute-font">Vợ iu ơi... Bảo Trân biết Bảo Trân sai rồi... Vợ tha thứ cho Bảo Trân nhó?</p>
+        <div class="buttons">
+            <button id="yesButton">Đồng ý</button>
+            <button id="noButton">Không đồng ý</button>
+        </div>
+        <h1 id="thankYouMessage" style="color: pink; background: white; border-radius: 10px; padding: 10px; display: none; animation: fadeIn 2s ease-in-out, bounce 1s infinite;">Cảm ơn vợ đã tha thứ! Bảo Trân hứa sẽ không tái phạm nữa ạ. Bảo trân yêu vợ nhiều lắm ❤️</h1>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .cute-font {
+            font-family: 'Baloo 2', cursive;
+            font-size: 22px;
+            color: #ff69b4;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>
+const noButton = document.getElementById("noButton");
+
+noButton.addEventListener("mouseover", () => {
+    const container = document.querySelector(".container");
+    const buttonRect = noButton.getBoundingClientRect();
+
+    const newTop = Math.random() * (window.innerHeight - buttonRect.height);
+    const newLeft = Math.random() * (window.innerWidth - buttonRect.width);
+
+    noButton.style.position = "absolute";
+    noButton.style.top = `${newTop}px`;
+    noButton.style.left = `${newLeft}px`;
+});
+
+document.getElementById("yesButton").addEventListener("click", function() {
+    const thankYouMessage = document.getElementById("thankYouMessage");
+    thankYouMessage.style.display = "block"; // Hiển thị phần tử
+    thankYouMessage.style.opacity = "0"; // Bắt đầu ở trạng thái mờ
+    thankYouMessage.style.animation = "fadeIn 2s ease-in-out forwards, bounce 1s infinite 2s"; // Hiệu ứng kết hợp
+});
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe4e1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+}
+
+h1 {
+    color: #ff6f61;
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+    margin: 20px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#yesButton {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#noButton {
+    background-color: #f44336;
+    color: #fff;
+    position: relative;
+}
+
